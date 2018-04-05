@@ -1,0 +1,20 @@
+.container-img {
+  position: relative;
+  text-align: center;
+  color: white;
+  width: 100%;
+  height: 250px;
+  display: inline-block;
+  overflow: hidden;
+  margin: 0;
+}
+
+.fill {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+}

@@ -1,0 +1,3 @@
+export const ADD_PROPERTY = 'ADD_PROPERTY'
+export const MODIFY_PROPERTY = 'MODIFY_PROPERTY'
+export const GET_PROPERTY = 'GET_PROPERTY'

@@ -1,0 +1,32 @@
+{
+  "name": "new-homes-admin",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "3.3.7",
+    "jquery": "3.2.1",
+    "primereact": "^1.2.0",
+    "react": "16.0.0",
+    "react-cookies": "0.1.0",
+    "react-dom": "16.0.0",
+    "react-dropdown-multiselect": "^1.0.0",
+    "react-image-zoom": "^0.6.1",
+    "react-images": "^0.5.13",
+    "react-js-pagination": "^3.0.0",
+    "react-redux": "5.0.6",
+    "react-router-dom": "4.2.2",
+    "react-rte": "^0.15.0",
+    "react-scripts": "1.0.16",
+    "react-select": "^1.2.1",
+    "react-select-multi": "^1.6.2",
+    "redux": "3.7.2",
+    "redux-thunk": "2.2.0",
+    "toastr": "2.1.2"
+  },
+  "scripts": {
+    "start": "set PORT=3006 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
