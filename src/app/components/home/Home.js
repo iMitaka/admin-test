@@ -135,7 +135,7 @@ class Home extends Component {
         <div className="text-center">
           <Pagination
             activePage={this.state.activePage}
-            itemsCountPerPage={10}
+            itemsCountPerPage={12}
             totalItemsCount={this.state.properties.length >= 1 ? this.state.properties[0].totalCount : 0}
             pageRangeDisplayed={5}
             onChange={this.handlePageChange}

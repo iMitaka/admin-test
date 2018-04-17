@@ -28,7 +28,7 @@ export function getAllProperties() {
 }
 
 export function getAllPropertiesByFilter(filter, page) {
-    return httpServiceWithData('/Properties/GetProperties?page=' + page + '&totalCount=10&type=admin', "POST", filter)
+    return httpServiceWithData('/Properties/GetProperties?page=' + page + '&totalCount=12&type=admin', "POST", filter)
 }
 
 export function register(data) {
