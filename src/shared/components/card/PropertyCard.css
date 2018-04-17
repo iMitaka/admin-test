@@ -3,7 +3,8 @@
     margin-left: 3%;
     margin-right: 3%;
     border: 1px solid gainsboro;
-    cursor: pointer
+    cursor: pointer;
+    box-shadow: 10px 10px 15px grey;
 }
 
 .card-title {
@@ -35,7 +36,7 @@
 }
 
 /* Container holding the image and the text */
-.container-img {
+.card-container-img {
     position: relative;
     text-align: center;
     color: white;
@@ -46,7 +47,9 @@
     margin: 0;
 }
 
-.fill {
+.card-fill {
+    border: 0;
+    padding: 0;
     display: block;
     position: absolute;
     top: 50%;
@@ -55,6 +58,14 @@
     min-width: 100%;
     transform: translate(-50%, -50%);
 }
+
+.ellipsis {
+    text-overflow: ellipsis;
+  
+    /* Required for text-overflow to do anything */
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
 /* Top right text */
 .top-right {
@@ -66,7 +77,8 @@
     padding-bottom: 1%;
     padding-right: 4%;
     box-shadow: 0 4px 4px #646470;
-    font-size: 110%
+    font-size: 110%;
+    z-index: 5
 }
 
 .status-color-blue {
@@ -89,6 +101,7 @@
     background-color: #3b5998;
     font-size: 115%;
     box-shadow: 5px 0 4px #646470;
+    z-index: 5
 }
 
 .top-left {
@@ -102,6 +115,7 @@
     padding-right: 7%;
     font-size: 110%;
     box-shadow: 0 4px 4px #646470;
+    z-index: 5
 }
 
 .text-field {
@@ -109,6 +123,19 @@
     width: 100%; 
     overflow: hidden;
     text-overflow: ellipsis; 
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1
+}
+
+.fix-logo {
+    background-color: transparent;
+    border: none
 }
 
 .no-bold {

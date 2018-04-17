@@ -23,6 +23,7 @@ class Login extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this)
         this.login = this.login.bind(this)
+        this.enterPress = this.enterPress.bind(this)
     }
 
     handleInputChange(event) {
@@ -50,7 +51,7 @@ class Login extends Component {
             this.props.history.push(ROUTE_HOME)
         })
         .catch((err) => {
-            console.log(err)
+            console.log(JSON.stringify(err))
         })
     }
 

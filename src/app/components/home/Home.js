@@ -38,7 +38,7 @@ class Home extends Component {
     //   .catch((err) => console.log(err))
 
     getAllPropertiesByFilter(this.state.filter, 1)
-            .then(res => res.json())
+      .then(res => res.json())
       .then((result) => {
         console.log(result)
         this.setState({ properties: result })
@@ -60,20 +60,27 @@ class Home extends Component {
   }
 
   render() {
-    console.log(1)
     let properties = this.state.properties.map((property, index) => {
+
+      let rowClass = ''
+      if ((index + 1) % 4 === 0) {
+        rowClass = "row"
+      }
+
       return (
-        <div key={index} onClick={() => this.editProperty(property.id)} className="col-lg-3">
-          <PropertyCard img={DOMAIN_URL + '/' + property.id + '/' + (property.photos.length >= 1 ? property.photos[0].path : '')}
-            price={property.price + ' ' + property.curency}
-            title={property.title}
-            address={property.neighborhood + ', ' + property.town + ', ' + property.country}
-            properyType={property.propertyType}
-            properyArea={property.area}
-            properyBedroom={property.bedroomsCount}
-            properyBathroom={property.bathroomsCount}
-            status={property.offerType}
-            isVip={property.isVIP} />
+        <div className={rowClass}>
+          <div key={index} onClick={() => this.editProperty(property.id)} className="col-lg-3">
+            <PropertyCard img={DOMAIN_URL + '/' + property.id + '/' + (property.photos.length >= 1 ? property.photos[0].path : '')}
+              price={property.price + ' ' + property.curency}
+              title={property.title}
+              address={property.neighborhood + ', ' + property.town + ', ' + property.country}
+              properyType={property.propertyType}
+              properyArea={property.area}
+              properyBedroom={property.bedroomsCount}
+              properyBathroom={property.bathroomsCount}
+              status={property.offerType}
+              isVip={property.isVIP} />
+          </div>
         </div>
       )
     })

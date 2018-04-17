@@ -36,10 +36,10 @@ export default class PropertyCard extends Component {
                         {vip}
                     </div>
                     <div className="card-title text-field">
-                        {this.props.title}
+                        <p className="ellipsis">{this.props.title}</p>
                     </div>
                     <div className="card-subtitle text-field">
-                        {this.props.address}
+                        <p className="ellipsis">{this.props.address}</p>
                     </div>
                     <div className="card-body">
                         <div className="row">
