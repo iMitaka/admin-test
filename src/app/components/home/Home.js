@@ -60,6 +60,8 @@ class Home extends Component {
   }
 
   render() {
+
+    console.log(this.state.properties)
     let properties = this.state.properties.map((property, index) => {
 
       let rowClass = ''
@@ -68,8 +70,8 @@ class Home extends Component {
       }
 
       return (
-        <div className={rowClass}>
-          <div key={index} onClick={() => this.editProperty(property.id)} className="col-lg-3">
+        <div key={index} className={rowClass}>
+          <div  onClick={() => this.editProperty(property.id)} className="col-lg-3">
             <PropertyCard img={DOMAIN_URL + '/' + property.id + '/' + (property.photos.length >= 1 ? property.photos[0].path : '')}
               price={property.price + ' ' + property.curency}
               title={property.title}
@@ -133,8 +135,8 @@ class Home extends Component {
         <div className="text-center">
           <Pagination
             activePage={this.state.activePage}
-            itemsCountPerPage={6}
-            totalItemsCount={this.state.properties.length >= 1 ? this.state.properties[0].Count : 0}
+            itemsCountPerPage={10}
+            totalItemsCount={this.state.properties.length >= 1 ? this.state.properties[0].totalCount : 0}
             pageRangeDisplayed={5}
             onChange={this.handlePageChange}
           />
