@@ -13,7 +13,7 @@ export default class BuildingType extends Component {
     }
 
     componentDidMount() {
-        nomenclatureService.getPropertyType()
+        nomenclatureService.getBuildingType()
         .then(res => res.json())
         .then((data) => this.setState({ Countries: data }))
         .catch((err) => console.log(err))
