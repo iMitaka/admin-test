@@ -10,6 +10,7 @@ export default class Neighbourhood extends Component {
         }
 
         this.handleInputChange = this.handleInputChange.bind(this)
+        this.loadAll = this.loadAll.bind(this)
     }
 
     loadAll(id) {
