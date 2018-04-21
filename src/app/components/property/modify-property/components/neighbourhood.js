@@ -6,7 +6,8 @@ export default class Neighbourhood extends Component {
         super(props)
 
         this.state = {
-            Countries: []
+            Countries: [],
+            townId: 0
         }
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -15,9 +16,9 @@ export default class Neighbourhood extends Component {
 
     loadAll(id) {
         nomenclatureService.getNeighbourhood(id)
-        .then(res => res.json())
-        .then((data) => this.setState({ Countries: data }))
-        .catch((err) => console.log(err))
+            .then(res => res.json())
+            .then((data) => this.setState({ Countries: data }))
+            .catch((err) => console.log(err))
     }
 
     handleInputChange(event) {
@@ -31,7 +32,10 @@ export default class Neighbourhood extends Component {
     }
 
     componentWillReceiveProps(newProps) {
+        if (newProps.townId != this.state.townId) {
             this.loadAll(newProps.townId)
+            this.setState({ townId: newProps.townId })
+        }
     }
 
     render() {
@@ -44,7 +48,7 @@ export default class Neighbourhood extends Component {
             <div className="text-center">
                 <strong >Квартал</strong>
                 <select className="form-control" name={this.props.name} onChange={this.props.onChange} value={this.props.value}>
-                <option value="0" disabled={this.props.disableEmpty}>{this.props.empltyLabel}</option>
+                    <option value="0" disabled={this.props.disableEmpty}>{this.props.empltyLabel}</option>
                     {options}
                 </select>
                 <br />

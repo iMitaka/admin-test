@@ -172,7 +172,7 @@ class ModifyProperty extends Component {
                 })
 
         } else {
-            value = target.value
+            value = target.type === 'checkbox' ? target.checked : target.value
 
             const name = target.name;
 
@@ -215,7 +215,7 @@ class ModifyProperty extends Component {
             BuildingTypeId: this.state.BuildingTypeId,
             CurencyId: this.state.CurrencyId,
             ApartamentTypeId: this.state.ApartamentTypeId,
-            extrasIds: this.state.ExtrasIds
+            ExtrasIds: this.state.ExtrasIds
         }
         updateProperty(data, this.state.Id)
             .then(res => res.text())

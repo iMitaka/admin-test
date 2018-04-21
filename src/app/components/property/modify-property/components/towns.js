@@ -6,7 +6,8 @@ export default class Towns extends Component {
         super(props)
 
         this.state = {
-            Countries: []
+            Countries: [],
+            countryId: 0
         }
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -31,7 +32,10 @@ export default class Towns extends Component {
     }
 
     componentWillReceiveProps(newProps) {
+        if(this.state.countryId != newProps.countryId) {
             this.loadAll(newProps.countryId)
+            this.setState({countryId: newProps.countryId})
+        }
     }
 
     render() {
