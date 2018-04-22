@@ -75,15 +75,15 @@ class ModifyProperty extends Component {
         this.loadProperty()
 
         getExtras()
-        .then(res => res.json())
-        .then((result) => {
-            this.setState({
-                extrasList: result
+            .then(res => res.json())
+            .then((result) => {
+                this.setState({
+                    extrasList: result
+                })
             })
-        })
-        .catch((err) => {
-            console.log(err)
-        })
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     uploadPhoto() {
@@ -217,6 +217,13 @@ class ModifyProperty extends Component {
             ApartamentTypeId: this.state.ApartamentTypeId,
             ExtrasIds: this.state.ExtrasIds
         }
+
+        for (var key in data) {
+            if (data[key] === 0) {
+                data[key] = null;
+            }
+        }
+
         updateProperty(data, this.state.Id)
             .then(res => res.text())
             .then((result) => {
@@ -274,9 +281,9 @@ class ModifyProperty extends Component {
         var options = event.target.options;
         var value = [];
         for (var i = 0, l = options.length; i < l; i++) {
-          if (options[i].selected) {
-            value.push(options[i].value);
-          }
+            if (options[i].selected) {
+                value.push(options[i].value);
+            }
         }
 
         console.log(value)
@@ -319,54 +326,54 @@ class ModifyProperty extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-3">
-                        <TextInputComponent name="Code" disabled={true} label="Код" type="text" value={this.state.Code} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Code" disabled={true} label="Код" type="text" value={this.state.Code === null ? '' : this.state.Code} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="Name" label="Име" type="text" value={this.state.Name} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Name" label="Име" type="text" value={this.state.Name === null ? '' : this.state.Name} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="BedroomsCount" label="Спални" type="number" value={this.state.BedroomsCount} onChange={this.handleInputChange} />
+                        <TextInputComponent name="BedroomsCount" label="Спални" type="number" value={this.state.BedroomsCount === null ? 0 : this.state.BedroomsCount} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="BathroomsCount" label="Бани" type="number" value={this.state.BathroomsCount} onChange={this.handleInputChange} />
+                        <TextInputComponent name="BathroomsCount" label="Бани" type="number" value={this.state.BathroomsCount === null ? 0 : this.state.BathroomsCount} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="Price" label="Цена" type="number" value={this.state.Price} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Price" label="Цена" type="number" value={this.state.Price === null ? 0 : this.state.Price} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="Year" label="Година" type="number" value={this.state.Year} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Year" label="Година" type="number" value={this.state.Year === null ? 0 : this.state.Year} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="Area" label="Площ" type="number" value={this.state.Area} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Area" label="Площ" type="number" value={this.state.Area === null ? 0 : this.state.Area} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="Floor" label="Етаж" type="number" value={this.state.Floor} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Floor" label="Етаж" type="number" value={this.state.Floor === null ? 0 : this.state.Floor} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="FloorsInBuilding" label="Етажи в сградата" type="number" value={this.state.FloorsInBuilding} onChange={this.handleInputChange} />
+                        <TextInputComponent name="FloorsInBuilding" label="Етажи в сградата" type="number" value={this.state.FloorsInBuilding === null ? 0 : this.state.FloorsInBuilding} onChange={this.handleInputChange} />
                         <br />
                         <input type="checkbox" name="IsVIP" checked={this.state.IsVIP} onChange={this.handleInputChange} /> Направи ВИП обява
                          <br />
                         <input type="checkbox" name="IsVisible" checked={this.state.IsVisible} onChange={this.handleInputChange} /> Видима обява
                     </div>
                     <div className="col-lg-3">
-                        <Countries name="CountryId" value={this.state.CountryId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <Towns name="TownId" countryId={this.state.CountryId} value={this.state.TownId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <Neighbourhood name="NeighbourhoodId" townId={this.state.TownId} value={this.state.NeighbourhoodId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <Currency name="CurrencyId" value={this.state.CurrencyId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <ProperyPurpose name="PropertyPurposeId" value={this.state.PropertyPurposeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <PropertyType name="PropertyTypeId" value={this.state.PropertyTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <BuildingStatus name="BuildingStatusId" value={this.state.BuildingStatusId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <BuildingType name="BuildingTypeId" value={this.state.BuildingTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
-                        <ApartamentType name="ApartamentTypeId" value={this.state.ApartamentTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <Countries name="CountryId" value={this.state.CountryId === null ? 0 : this.state.CountryId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <Towns name="TownId" countryId={this.state.CountryId} value={this.state.TownId === null ? 0 : this.state.TownId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <Neighbourhood name="NeighbourhoodId" townId={this.state.TownId} value={this.state.NeighbourhoodId === null ? 0 : this.state.NeighbourhoodId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <Currency name="CurrencyId" value={this.state.CurrencyId === null ? 0 : this.state.CurrencyId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <ProperyPurpose name="PropertyPurposeId" value={this.state.PropertyPurposeId === null ? 0 : this.state.PropertyPurposeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <PropertyType name="PropertyTypeId" value={this.state.PropertyTypeId === null ? 0 : this.state.PropertyTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <BuildingStatus name="BuildingStatusId" value={this.state.BuildingStatusId === null ? 0 : this.state.BuildingStatusId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <BuildingType name="BuildingTypeId" value={this.state.BuildingTypeId === null ? 0 : this.state.BuildingTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
+                        <ApartamentType name="ApartamentTypeId" value={this.state.ApartamentTypeId === null ? 0 : this.state.ApartamentTypeId} onChange={this.handleInputChange} disableEmpty={true} empltyLabel={'Моля, изберете'} />
 
                     </div>
                     <div className="col-lg-3">
                         <strong>Изберете екстри към имота:</strong>
-                        <select className="form-control" multiple={true} onChange={this.multiselect} style={{height: 500}} value={this.state.ExtrasIds}>
+                        <select className="form-control" multiple={true} onChange={this.multiselect} style={{ height: 500 }} value={this.state.ExtrasIds}>
                             {extras}
                         </select>
                     </div>
                 </div>
                 <div className="row">
                     <div className="col-lg-6">
-                        <TextInputComponent name="Address" label="Адрес" type="text" value={this.state.Address} onChange={this.handleInputChange} />
+                        <TextInputComponent name="Address" label="Адрес" type="text" value={this.state.Address === null ? '' : this.state.Address} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="OwnerName" label="Име на собственика" type="text" value={this.state.OwnerName} onChange={this.handleInputChange} />
+                        <TextInputComponent name="OwnerName" label="Име на собственика" type="text" value={this.state.OwnerName === null ? '' : this.state.OwnerName} onChange={this.handleInputChange} />
                         <br />
-                        <TextInputComponent name="OwnerPhone" label="Телефон на собственика" type="text" value={this.state.OwnerPhone} onChange={this.handleInputChange} />
+                        <TextInputComponent name="OwnerPhone" label="Телефон на собственика" type="text" value={this.state.OwnerPhone === null ? '' : this.state.OwnerPhone} onChange={this.handleInputChange} />
                         <br />
                     </div>
                 </div>
