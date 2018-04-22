@@ -94,7 +94,6 @@ class ModifyProperty extends Component {
         getProperty(this.state.Id)
             .then(res => res.json())
             .then((result) => {
-                console.log(result)
                 this.setState({
                     Name: result.title,
                     IsVisible: result.isVisible,
@@ -124,8 +123,6 @@ class ModifyProperty extends Component {
                     photos: result.photos,
                     ExtrasIds: result.extrasIds
                 })
-
-                console.log(result.description)
             })
             .catch((err) => {
                 console.log(err)
@@ -136,7 +133,6 @@ class ModifyProperty extends Component {
         deleteProperty(this.state.Id)
             .then(res => res.text())
             .then((result) => {
-                console.log(result)
                 this.props.history.push('/')
             })
             .catch((err) => {
@@ -160,11 +156,10 @@ class ModifyProperty extends Component {
 
             let formData = new FormData();
             formData.append('File', target.files[0]);
-            console.log(formData.get('File'))
+
             uploadPhoto(this.state.Id, formData)
                 .then(res => res.text())
                 .then((result) => {
-                    console.log(result)
                     this.loadProperty()
                 })
                 .catch((err) => {
@@ -227,7 +222,6 @@ class ModifyProperty extends Component {
         updateProperty(data, this.state.Id)
             .then(res => res.text())
             .then((result) => {
-                console.log(result)
                 this.loadProperty()
             })
             .catch((err) => {
@@ -248,12 +242,9 @@ class ModifyProperty extends Component {
         const target = event.target;
         let value = target.value
 
-        console.log(id)
-        console.log(value)
         modifyPhotos(id, value)
             .then(res => res.text())
             .then((result) => {
-                console.log(result)
                 this.loadProperty()
             })
             .catch((err) => {
@@ -265,7 +256,6 @@ class ModifyProperty extends Component {
         deletePhotos(id)
             .then(res => res.text())
             .then((result) => {
-                console.log(result)
                 this.loadProperty()
             })
             .catch((err) => {
@@ -286,7 +276,6 @@ class ModifyProperty extends Component {
             }
         }
 
-        console.log(value)
         this.setState({
             ExtrasIds: value
         })

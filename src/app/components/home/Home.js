@@ -32,22 +32,15 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    // getAllPropertiesByFilter(null, this.state.activePage)
-    //   .then(res => res.json())
-    //   .then((result) => this.setState({ properties: result }))
-    //   .catch((err) => console.log(err))
-
     getAllPropertiesByFilter(this.state.filter, 1)
       .then(res => res.json())
       .then((result) => {
-        console.log(result)
         this.setState({ properties: result })
       })
       .catch((err) => console.log(err))
   }
 
   search(filter) {
-    console.log(filter)
     this.setState({ filter: filter });
     getAllPropertiesByFilter(filter, this.state.activePage)
       .then(res => res.json())
@@ -60,8 +53,6 @@ class Home extends Component {
   }
 
   render() {
-
-    console.log(this.state.properties)
     let properties = this.state.properties.map((property, index) => {
 
       let rowClass = ''
