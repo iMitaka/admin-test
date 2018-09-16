@@ -26,7 +26,8 @@ class Search extends Component {
             CurrencyId: 0,
             TownId: 0,
             NeighbourhoodId: 0,
-            CountryId: 0
+            CountryId: 0,
+            address: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -68,6 +69,10 @@ class Search extends Component {
                     </div>
                     <div className="col-md-2">
                         <Neighbourhood name="NeighbourhoodId" townId={this.state.TownId} value={this.state.NeighbourhoodId} onChange={this.handleInputChange} disableEmpty={false} empltyLabel={'Всички'} />
+                    </div>
+                    <div className="col-md-2">
+                        <strong>Адрес / Телефон:</strong>
+                        <input type="text" className="form-control" name="address" value={this.state.address} onChange={this.handleInputChange} />
                     </div>
                 </div>
                 <div className="row">

@@ -17,7 +17,9 @@ class Register extends Component {
         this.state = {
             username: '',
             password: '',
-            email: ''
+            email: '',
+            lastName: '',
+            firstName: ''
         };
 
         this.handleInputChange = this.handleInputChange.bind(this)
@@ -60,7 +62,11 @@ class Register extends Component {
                 <div className="col-lg-2">
                     <TextInputComponent name="username" label={username_label} type="text" value={this.state.username} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
                     <br />
-                    <TextInputComponent name="email" label={username_label} type="email" value={this.state.email} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
+                    <TextInputComponent name="firstName" label={'Име'} type="text" value={this.state.firstName} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
+                    <br />
+                    <TextInputComponent name="lastName" label={'Фамилия'} type="text" value={this.state.lastName} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
+                    <br />
+                    <TextInputComponent name="email" label={'Майл'} type="email" value={this.state.email} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
                     <br />
                     <TextInputComponent name="password" label={password_label} type="password" value={this.state.password} onChange={this.handleInputChange} onKeyPress={this.enterPress} />
                     <br />

@@ -31,8 +31,8 @@ import ApartamentType from '../app/components/numenclatures/apartament-type'
 const Routes = () => (
     <Switch>
         <Route exact path={ROUTE_LOGIN} component={Login} />
-        <Route exact path={'/register'} component={Register} />
         <EnsureLoggedInContainer>
+            <Route exact path={'/register'} component={Register} />
             <Route exact path={ROUTE_HOME} component={Home} />
             <Route exact path={ROUTE_ADD_PROPERTY} component={AddProperty} />
             <Route exact path={ROUTE_MODIFY_PROPERTY + '/:id'} component={ModifyProperty} />

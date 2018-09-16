@@ -114,6 +114,9 @@ class Home extends Component {
           <div className="col-md-2">
             <Link className="btn btn-info" to={'/apartament-type'}>+ Добави тип апартамент</Link>
           </div>
+          <div className="col-md-2">
+            <Link className="btn btn-info" to={'/register'}>+ Добави брокер</Link>
+          </div>
         </div>
         <br />
         <hr />
