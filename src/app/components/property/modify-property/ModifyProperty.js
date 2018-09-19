@@ -113,7 +113,7 @@ class ModifyProperty extends Component {
                     Address: result.address,
                     Code: result.code,
                     OwnerName: result.ownerName,
-                    OwnerPhon: result.ownerPhone,
+                    OwnerPhone: result.ownerPhone,
                     IsVIP: result.isVIP,
                     Floor: result.floor,
                     FloorsInBuilding: result.allFloorsCount,
