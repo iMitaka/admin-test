@@ -1,2 +1,2 @@
-//export const DOMAIN_URL = 'http://localhost:62812'
-export const DOMAIN_URL = 'http://jarvisedgeapi20180415101745.azurewebsites.net'
+// export const DOMAIN_URL = 'http://localhost:58539'
+export const DOMAIN_URL = 'https://jarvisedgeapi20190423090621windows.azurewebsites.net/'
